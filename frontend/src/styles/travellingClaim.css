@@ -1,0 +1,78 @@
+
+
+/* ------------------------------
+   BEAUTIFUL BLUE FOCUS STATE
+--------------------------------*/
+.form-grid input:focus,
+.form-grid select:focus {
+  outline: none; /* ❌ remove default browser outline */
+  border-color: #2563eb; /* blue-600 */
+  box-shadow: 
+    0 0 0 3px rgba(37, 99, 235, 0.25); /* ✅ soft blue ring */
+  background: #ffffff;
+}
+
+/* ------------------------------
+   LABELS
+--------------------------------*/
+.form-grid label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ------------------------------
+   TOTAL FIELD (SPECIAL)
+--------------------------------*/
+.total-input {
+  height: 46px;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 2px solid #2563eb;
+  background: #f8fafc;
+}
+
+.total-input:focus {
+  box-shadow: 
+    0 0 0 4px rgba(37, 99, 235, 0.3);
+}
+
+
+/* ==============================
+   FORM GRID (NO OVERLAP EVER)
+============================== */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 24px; /* row gap | column gap */
+  margin-top: 16px;
+}
+
+/* Each field */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure inputs never overflow */
+.form-group input,
+.form-group select {
+  width: 100%;
+  box-sizing: border-box;
+}
+.amount {
+  font-weight: 700;          /* Bold */
+  color: #111827;            /* Dark professional text */
+}
+
+
+/* ==============================
+   RESPONSIVE (MOBILE SAFE)
+============================== */
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

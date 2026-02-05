@@ -1,0 +1,55 @@
+import mongoose from "mongoose";
+
+const fuelAllowanceSchema = new mongoose.Schema(
+  {
+    date: {
+      type: String, // YYYY-MM-DD
+      required: true
+    },
+
+    month: {
+      type: String, // e.g. "January 2026"
+      required: true
+    },
+
+    payeeId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Payee",
+      required: true
+    },
+
+    // 🔐 SNAPSHOT FIELDS
+    empNo: {
+      type: String,
+      required: true
+    },
+
+    employeeName: {
+      type: String,
+      required: true
+    },
+
+    approvedLiterPerMonth: {
+      type: String,
+      required: true
+    },
+
+    rate: {
+      type: String,
+      required: true
+    },
+
+    amount: {
+      type: String,
+      required: true
+    },
+
+    isDeleted: {
+      type: Boolean,
+      default: false
+    }
+  },
+  { timestamps: true }
+);
+
+export default mongoose.model("FuelAllowance", fuelAllowanceSchema);

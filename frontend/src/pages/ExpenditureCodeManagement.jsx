@@ -35,16 +35,16 @@ const ExpenditureCodeManagement = () => {
   /* ---------------- HANDLERS ---------------- */
   const handleCodeChange = (e) => {
     const value = e.target.value;
-    // Validation: Only allow digits and max length of 6
-    if (/^\d*$/.test(value) && value.length <= 6) {
+    // Validation: Only allow digits and max length of 5
+    if (/^\d*$/.test(value) && value.length <= 5) {
       setForm({ ...form, code: value });
     }
   };
 
   const submit = async () => {
     // Final Validation check
-    if (form.code.length !== 6) {
-      alert("Expenditure Code must be exactly 6 digits.");
+    if (form.code.length !== 5) {
+      alert("Expenditure Code must be exactly 5 digits.");
       return;
     }
     if (!form.name.trim()) {
@@ -101,18 +101,18 @@ const ExpenditureCodeManagement = () => {
 
           <div className="form-grid-2">
             <div>
-              <label>Expenditure Code (6 Digits)</label>
+              <label>Expenditure Code (5 Digits)</label>
               <input
                 type="text"
-                placeholder="e.g. 102030"
+                placeholder="e.g. 10203"
                 value={form.code}
                 disabled={!!editingId}
                 onChange={handleCodeChange}
                 style={editingId ? { background: "#f1f5f9", cursor: "not-allowed" } : {}}
               />
               {!editingId && (
-                <small style={{ color: form.code.length === 6 ? "#10b981" : "#64748b" }}>
-                  {form.code.length}/6 digits entered
+                <small style={{ color: form.code.length === 5 ? "#10b981" : "#64748b" }}>
+                  {form.code.length}/5 digits entered
                 </small>
               )}
             </div>
